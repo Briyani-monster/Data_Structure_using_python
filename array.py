@@ -32,7 +32,7 @@ class  DynamicArray(object):
 		self.A[self.n]=element # Set self.n index to element
 		self.n+=1#increasing the count by one
 
-	def insert(self,item,index):
+	def insert(self,item,index=0):
 		"""
 		this will insert the item at any specified index
 		error : it'll show "index out of bound" error when u enter index out of the array length
@@ -53,7 +53,7 @@ class  DynamicArray(object):
 			return 'Empty array deletion is not possible '
 		self.A[self.n-1]=0
 		self.n-=1
-	def remove(self,index):
+	def remove(self,index=0):
 		"""
 		delete item from the given index
 		"""		
@@ -89,17 +89,26 @@ class  DynamicArray(object):
 		'''
 		return (new_capacity*ctypes.py_object)()
 	def length(self):
-		print(f"\n{self.n}")
+		print(self.n)
 		return 	
 	def print(self):
 		"""
 		printing all element of an array
 		"""	
-		print("-----------------")
+		
 		for i in range(0,self.n):
 			
-			print(f"index {i}: {self.A[i]}")
-		print("-----------------")
+			print(self.A[i],end=" ")
+		print(end="\n")
+	def replace(self,index,item):
+		"""
+		relaces the index value with item value
+
+		"""	
+		if not  0<=index<self.n:
+			print('array index is out of bound')
+			return
+		self.A[index]=item	
 
 
 array1=DynamicArray()
@@ -108,9 +117,15 @@ array1.append(25)
 array1.append(9)
 array1.print()
 array1.delete()
-array1.print()
+array1.insert(8888)
 array1.print()
 array1.length()
+array1.remove()
+array1.print()
+array1.append(25)
+array1.append(9)
+array1.replace(2,item=12)
+array1.print()
 
 		
 
